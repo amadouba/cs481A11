@@ -100,7 +100,8 @@ class MainHandler(webapp2.RequestHandler):
         #return self.response.write(self.request.get)
         if c :
             self.response.delete_cookie(c)
-        #return self.response.write(self.request.get)
+
+
         if user_id :
             #return self.response.write(self.request.get)
             user_entry = User.get_by_id(user_id)
@@ -108,7 +109,12 @@ class MainHandler(webapp2.RequestHandler):
 
         template_values = { 'users': []}
         for i in var:
-            template_values['users'] += [{'id':i.id() , 'entry':i.get(), 'items':i.get().all_items()}]
+            items = ""
+            for t in i.get().all_items():
+                items += str(t.name) + " , "
+
+            #return self.response.write(items)
+            template_values['users'] += [ {'id':i.id() ,  'item': str(items) ,'entry':i.get() }]
             #print template_values['users']
             #self.response.write(template_values['users'])
         template = JINJA_ENVIRONMENT.get_template('index.html')

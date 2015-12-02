@@ -5,7 +5,21 @@
     <title>Title</title>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+		$("#user").click(function (){
 
+			userItems = $(this).val();
+
+
+			$("#dynamic").html(userItems) ;
+
+
+		});
+		});
+
+
+	</script>
 </head>
 <body>
 
@@ -17,29 +31,20 @@
 
 	<p name = 'userlist'> Registered Users</p>
 	<table id = 'users' >{%for u in users%}
-	<tr><td><a  href = "/?user={{u.id}}" onmouseover = "displayItem({{u.id}})">{{u.id}}</a><td></tr>
+	<tr><td><a  href = "/?user={{u.id}}" class = 'user'   value = "{{u.item}}">{{u.id}}</a>
+
+		<button id = "user" value = "{{u.item}}" >Click</button> </td></tr>
 
 
-		<input id = "{{u.id}}" type = 'hidden' value = {{u.items}}>
+
 	{%endfor%}</table>
 		</div>
-		<div id = 'dynamic'>
 
+		<div id = 'dynamic'>
+			
 		</div>
 
-		<script>
-		function displayItem(user) {
-			userItems = $('#user').val();
-			var new_html  = "<table id = "items">";
-			for(i = 0 ; i < userItems.length;i++){
-				new_html += "<tr><td>" + userItems[i] + "<td><tr>"
-			}
-			new_html += "</table>";
-    		document.getElementById("dynamic").innerHTML = new_html ;
-		}
 
-
-	</script>
 	</div>
 </body>
 </html>
