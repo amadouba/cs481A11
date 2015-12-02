@@ -1,0 +1,26 @@
+
+#whole{
+    margin:auto;
+    max-width:500px;
+    padding:25px;
+    border:5px outset;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    height:400px;
+
+}
+
+#users{
+    width: 250px;
+    border-collapse: collapse;
+    bottom-padding:4px;
+    top-padding:5px;
+    text-align:left;
+    float:left;
+
+}
+#items{
+    width:70px;
+
+    text-align:right;
+    display:inline-block;
+}

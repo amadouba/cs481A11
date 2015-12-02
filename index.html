@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+</head>
+<body>
+
+	<div id = 'whole'>
+		<div id = 'stat'>
+	<h2>Hello, There!</h2>
+		<a href = "/users"> Access Users Here</a><br>
+		<a href = "/items"> Access Items Here</a><br><br><br>
+
+	<p name = 'userlist'> Registered Users</p>
+	<table id = 'users' >{%for u in users%}
+	<tr><td><a  href = "/?user={{u.id}}" onmouseover = "displayItem({{u.id}})">{{u.id}}</a><td></tr>
+
+
+		<input id = "{{u.id}}" type = 'hidden' value = {{u.items}}>
+	{%endfor%}</table>
+		</div>
+		<div id = 'dynamic'>
+
+		</div>
+
+		<script>
+		function displayItem(user) {
+			userItems = $('#user').val();
+			var new_html  = "<table id = "items">";
+			for(i = 0 ; i < userItems.length;i++){
+				new_html += "<tr><td>" + userItems[i] + "<td><tr>"
+			}
+			new_html += "</table>";
+    		document.getElementById("dynamic").innerHTML = new_html ;
+		}
+
+
+	</script>
+	</div>
+</body>
+</html>

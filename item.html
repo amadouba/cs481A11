@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Items</title>
+</head>
+{%if error%}
+<h6> error</h6>
+{%endif%}
+{%if success%}
+<h6> success </h6>
+{%endif%}
+
+<body>
+<h2>Hello, {{user}}!</h2>
+		<a> Choose Item here, username required</a>
+		<form action = "/items" method = "post">
+		Item : <input type = "text" name= "item" required>
+		<input type = 'submit'></form>
+
+</body>
+</html>
